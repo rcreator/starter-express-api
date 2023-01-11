@@ -1,8 +1,7 @@
-import { myconnection } from "./myconnection.js";
+const myconnection = require("./myconnection");
 
-export const my_getProducts = async () => {
+const my_getProducts = async () => {
   return myconnection().then((res) => {
-    
     const myresult = (resp) => {
       return resp.query(
         "SELECT * FROM `products`",
@@ -18,3 +17,5 @@ export const my_getProducts = async () => {
     myresult(res).then((resul) => console.log(resul));
   });
 };
+
+module.exports = my_getProducts;

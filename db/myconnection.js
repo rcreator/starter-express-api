@@ -1,6 +1,6 @@
-import mysql from "mysql";
+const mysql = require("mysql");
 
-export const myconnection = async () => {
+const myconnection = async () => {
   var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -15,3 +15,5 @@ export const myconnection = async () => {
   });
   return connection;
 };
+
+module.exports = myconnection;

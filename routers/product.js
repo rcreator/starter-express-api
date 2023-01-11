@@ -1,6 +1,6 @@
-import bodyParser from "body-parser";
-import express from "express";
-import { myconnection } from "../db/myconnection.js";
+const bodyParser = require("body-parser");
+const express = require("express");
+const myconnection = require("../db/myconnection");
 
 const router = express.Router();
 router.use(bodyParser.json());
@@ -126,4 +126,4 @@ router.delete("/products/:id", (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

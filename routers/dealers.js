@@ -1,6 +1,6 @@
-import bodyParser from "body-parser";
-import express from "express";
-import { myconnection } from "../db/myconnection.js";
+const bodyParser = require("body-parser");
+const express = require("express");
+const myconnection = require("../db/myconnection");
 
 const router = express.Router();
 router.use(bodyParser.json());
@@ -8,8 +8,8 @@ router.use(bodyParser.json());
 router.get("/dealers", (req, res) => {
   try {
     myconnection()
-      .then((connect) => {
-        const sqlquery = "SELECT * FROM `dealers`";
+    .then((connect) => {
+      const sqlquery = "SELECT * FROM `dealers`";
         connect.query(sqlquery, function (error, results) {
           if (error) {
             res.status(500).send({
@@ -83,4 +83,4 @@ router.post("/dealer", (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
